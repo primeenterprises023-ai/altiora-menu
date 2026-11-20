@@ -1,0 +1,33 @@
+{
+  "name": "altiora-pedidos",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "description": "Plataforma de pedidos por QR Code para restaurantes — Altiora Grupo",
+  "engines": {
+    "bun": ">=1.2.0"
+  },
+  "scripts": {
+    "build": "bun run scripts/build.ts",
+    "start": "bun dist/server.js",
+    "migrate": "bun run scripts/migrate.ts",
+    "seed:demo": "bun run scripts/seed-demo.ts",
+    "seed:aurora": "bun run scripts/seed-demo.ts aurora",
+    "test": "bun test --tsconfig-override ./tsconfig.test.json server/test shared web/src",
+    "test:e2e": "bun run build && bun run e2e/run.ts",
+    "typecheck": "tsc --noEmit -p tsconfig.json"
+  },
+  "dependencies": {
+    "zod": "3.25.76"
+  },
+  "devDependencies": {
+    "@types/node": "^22.0.0",
+    "@types/react": "^19.0.0",
+    "@types/react-dom": "^19.0.0",
+    "esbuild": "0.28.2",
+    "playwright": "1.63.0",
+    "react": "19.2.8",
+    "react-dom": "19.2.8",
+    "typescript": "6.0.3"
+  }
+}

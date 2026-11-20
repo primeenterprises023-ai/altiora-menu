@@ -1,0 +1,35 @@
+<!doctype html>
+<html lang="pt-AO">
+<head>
+<meta charset="utf-8" />
+<style>
+  * { margin: 0; box-sizing: border-box; }
+  html, body { width: 512px; height: 512px; background: #0d0d0f; overflow: hidden; }
+  svg { display: block; width: 512px; height: 512px; }
+</style>
+</head>
+<body>
+<!-- Casa Aurora (restaurante fictício): um sol a nascer sobre o horizonte. Desenho próprio, feito para a demonstração. -->
+<svg viewBox="0 0 512 512" aria-label="Casa Aurora">
+  <defs>
+    <radialGradient id="glow" cx="50%" cy="62%" r="55%"><stop offset="0" stop-color="#c9a24b" stop-opacity=".28"/><stop offset="1" stop-color="#c9a24b" stop-opacity="0"/></radialGradient>
+    <linearGradient id="gold" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#e8cf8f"/><stop offset="1" stop-color="#b98f3a"/></linearGradient>
+  </defs>
+  <rect width="512" height="512" fill="#0d0d0f"/>
+  <rect width="512" height="512" fill="url(#glow)"/>
+  <circle cx="256" cy="256" r="236" fill="none" stroke="#3a3a41" stroke-width="2"/>
+  <!-- sol -->
+  <path d="M146 300a110 110 0 0 1 220 0z" fill="url(#gold)"/>
+  <!-- raios -->
+  <g stroke="#d9b865" stroke-width="12" stroke-linecap="round">
+    <path d="M256 150v-46"/>
+    <path d="M178 182l-30-34"/><path d="M334 182l30-34"/>
+    <path d="M124 246l-44-14"/><path d="M388 246l44-14"/>
+  </g>
+  <!-- horizonte -->
+  <path d="M96 326h320" stroke="#e4e3df" stroke-width="8" stroke-linecap="round"/>
+  <path d="M146 360h220" stroke="#6f6f78" stroke-width="8" stroke-linecap="round"/>
+  <path d="M196 394h120" stroke="#3a3a41" stroke-width="8" stroke-linecap="round"/>
+</svg>
+</body>
+</html>

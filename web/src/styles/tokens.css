@@ -1,0 +1,157 @@
+/* Tipo de letra da "voz" do menu (nome do restaurante, categorias, pratos): Lora, licença SIL OFL 1.1 (ver docs/licencas.md).
+   Subconjunto latino (português) para o menu abrir depressa em redes lentas. O resto da aplicação usa o tipo de letra do próprio aparelho. */
+@font-face {
+  font-family: "Altiora Lora";
+  src: url("./lora-var.woff") format("woff");
+  font-weight: 400 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+:root {
+  color-scheme: light dark;
+
+  /* tinta, papel e balcão */
+  --ink: #17171a;
+  --ink-2: #5b5b64; /* texto secundário (contraste 6:1 sobre o papel) */
+  --ink-3: #80808a; /* só para texto desativado ou auxiliar de grande dimensão */
+  --paper: #ffffff;
+  --counter: #f2f1ed;
+  --counter-2: #e8e6e0;
+  --rule: #dcdad2;
+  --rule-strong: #bfbcb1;
+  --focus: #8d6d22;
+  --scrim: rgba(7, 7, 8, 0.55);
+
+  /* cor do restaurante (valores por omissão da Altiora; cada restaurante define a sua com applyAccent) */
+  --accent: #c9a24b;
+  --on-accent: #17171a;
+  --accent-edge: rgba(23, 23, 26, 0.22); /* contorno discreto dos botões com a cor do restaurante */
+  --accent-text: var(--accent-text-l, #8d6d22); /* a cor do restaurante quando usada como texto sobre o papel */
+  --accent-soft: var(--accent-soft-l, #f6efdc); /* fundo suave com a cor do restaurante */
+  --btn: var(--accent);
+  --on-btn: var(--on-accent);
+  --danger-solid: #a03636;
+  --behind: var(--counter); /* o que está atrás da comanda (para os recortes do bordo) */
+
+  /* estados do pedido (discretos; o texto diz sempre o estado, a cor só reforça) */
+  --st-novo: #2a58ad;
+  --st-novo-bg: #e3ebfa;
+  --st-prep: #8c5a00;
+  --st-prep-bg: #fdefcf;
+  --st-pronto: #17714a;
+  --st-pronto-bg: #ddf3e8;
+  --st-entregue: #5b5b64;
+  --st-entregue-bg: #ecebe5;
+  --st-cancelado: #a03636;
+  --st-cancelado-bg: #f8e3e3;
+  --warn: #8c5a00;
+  --warn-bg: #fdefcf;
+  --danger: #a03636;
+  --danger-bg: #f8e3e3;
+  --ok: #17714a;
+  --ok-bg: #ddf3e8;
+
+  /* o papel da comanda (mantém-se claro mesmo no modo escuro) */
+  --ticket: #ffffff;
+  --ticket-ink: #17171a;
+  --ticket-muted: #5b5b64;
+  --ticket-rule: #d8d6cd;
+  --marker: #ffe58a; /* "marcador" para destacar notas dos clientes */
+
+  /* tipografia */
+  --font-ui: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", "Noto Sans", Arial, sans-serif;
+  --font-voice: "Altiora Lora", Georgia, "Times New Roman", serif;
+  --fs-xs: 0.8125rem;
+  --fs-sm: 0.9375rem;
+  --fs-md: 1rem;
+  --fs-lg: 1.125rem;
+  --fs-xl: 1.5rem;
+  --fs-2xl: 1.875rem;
+  --fs-3xl: 2.5rem;
+
+  /* espaço e formas */
+  --s1: 0.25rem;
+  --s2: 0.5rem;
+  --s3: 0.75rem;
+  --s4: 1rem;
+  --s5: 1.5rem;
+  --s6: 2rem;
+  --s7: 3rem;
+  --r-ticket: 3px;
+  --r-control: 12px;
+  --r-input: 10px;
+  --r-sheet: 22px;
+  --tap: 2.75rem;
+  --tap-big: 3.5rem;
+  --safe-bottom: env(safe-area-inset-bottom, 0px);
+}
+
+/* modo escuro: a tinta passa a fundo e o papel mantém-se papel */
+:root[data-theme="dark"] {
+  --ink: #f2f1ed;
+  --ink-2: #a6a6af;
+  --ink-3: #7f7f89;
+  --paper: #131316;
+  --counter: #070708;
+  --counter-2: #0d0d0f;
+  --rule: #26262b;
+  --rule-strong: #3a3a41;
+  --focus: #d9b865;
+  --scrim: rgba(0, 0, 0, 0.72);
+  --accent-edge: rgba(242, 241, 237, 0.28);
+  --accent-text: var(--accent-text-d, #d9b865);
+  --accent-soft: var(--accent-soft-d, #24211a);
+  --st-novo: #8fb0ff;
+  --st-novo-bg: #1a2238;
+  --st-prep: #f0be5a;
+  --st-prep-bg: #35290f;
+  --st-pronto: #6fd3a0;
+  --st-pronto-bg: #123626;
+  --st-entregue: #a6a6af;
+  --st-entregue-bg: #202024;
+  --st-cancelado: #f19a9a;
+  --st-cancelado-bg: #3d1c25;
+  --warn: #f0be5a;
+  --warn-bg: #35290f;
+  --danger: #f19a9a;
+  --danger-bg: #3d1c25;
+  --ok: #6fd3a0;
+  --ok-bg: #123626;
+  --ticket: #f4f3ef;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --ink: #f2f1ed;
+    --ink-2: #a6a6af;
+    --ink-3: #7f7f89;
+    --paper: #131316;
+    --counter: #070708;
+    --counter-2: #0d0d0f;
+    --rule: #26262b;
+    --rule-strong: #3a3a41;
+    --focus: #d9b865;
+    --scrim: rgba(0, 0, 0, 0.72);
+    --accent-edge: rgba(242, 241, 237, 0.28);
+    --accent-text: var(--accent-text-d, #d9b865);
+    --accent-soft: var(--accent-soft-d, #24211a);
+    --st-novo: #8fb0ff;
+    --st-novo-bg: #1a2238;
+    --st-prep: #f0be5a;
+    --st-prep-bg: #35290f;
+    --st-pronto: #6fd3a0;
+    --st-pronto-bg: #123626;
+    --st-entregue: #a6a6af;
+    --st-entregue-bg: #202024;
+    --st-cancelado: #f19a9a;
+    --st-cancelado-bg: #3d1c25;
+    --warn: #f0be5a;
+    --warn-bg: #35290f;
+    --danger: #f19a9a;
+    --danger-bg: #3d1c25;
+    --ok: #6fd3a0;
+    --ok-bg: #123626;
+    --ticket: #f4f3ef;
+  }
+}

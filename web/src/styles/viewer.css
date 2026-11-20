@@ -1,0 +1,110 @@
+/* Visualizador 3D (modelo que se roda com o dedo) e botão de realidade aumentada. */
+.v3d-wrap {
+  position: relative;
+  aspect-ratio: 4 / 3;
+  border-radius: 18px;
+  overflow: hidden;
+  background: radial-gradient(120% 90% at 50% 15%, #2a2a30 0%, #131316 62%, #0a0a0c 100%);
+  isolation: isolate;
+}
+.v3d-host {
+  position: absolute;
+  inset: 0;
+}
+.v3d {
+  position: absolute;
+  inset: 0;
+  outline-offset: -3px;
+}
+.v3d-canvas {
+  display: block;
+  width: 100%;
+  height: 100%;
+  touch-action: none; /* o dedo roda o modelo em vez de deslizar a página */
+  cursor: grab;
+}
+.v3d-canvas:active {
+  cursor: grabbing;
+}
+.v3d-poster {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.v3d-status {
+  position: absolute;
+  inset: auto 0 0 0;
+  z-index: 2;
+  margin: 0;
+  padding: 0.75rem 1rem;
+  font-size: 0.875rem;
+  text-align: center;
+  color: #f2f1ed;
+  background: rgba(7, 7, 8, 0.66);
+}
+.v3d-ui {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  pointer-events: none;
+}
+.v3d-hint {
+  position: absolute;
+  inset: 0.75rem 0 auto 0;
+  margin: 0;
+  text-align: center;
+  font-size: 0.8125rem;
+  letter-spacing: 0.01em;
+  color: #f2f1ed;
+  opacity: 0.88;
+  text-shadow: 0 1px 3px rgba(0, 0, 0, 0.7);
+}
+.v3d-bar {
+  position: absolute;
+  inset: auto 0.75rem 0.75rem 0.75rem;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-end;
+  gap: 0.5rem;
+  pointer-events: auto;
+}
+.v3d-btn {
+  display: inline-flex;
+  align-items: center;
+  min-height: 2.5rem;
+  padding: 0 1rem;
+  border: 1px solid rgba(242, 241, 237, 0.34);
+  border-radius: 999px;
+  background: rgba(13, 13, 15, 0.74);
+  color: #f2f1ed;
+  font: inherit;
+  font-size: 0.875rem;
+  text-decoration: none;
+  cursor: pointer;
+  -webkit-backdrop-filter: blur(6px);
+  backdrop-filter: blur(6px);
+}
+.v3d-btn:hover {
+  border-color: rgba(242, 241, 237, 0.7);
+}
+.v3d-btn-ar {
+  position: relative;
+  border-color: transparent;
+  background: #c9a24b;
+  color: #17171a;
+  font-weight: 600;
+}
+.v3d-btn-ar[aria-disabled="true"] {
+  opacity: 0.7;
+  pointer-events: none;
+}
+.v3d-ar-img {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  opacity: 0;
+  pointer-events: none;
+}

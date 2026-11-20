@@ -1,0 +1,16 @@
+# Fora da imagem: só entram dist/, db/migrations e scripts/demo-media/assets (ver o Dockerfile).
+.git
+.env
+.env.*
+!.env.example
+node_modules
+e2e
+server
+shared
+web
+docs
+*.log
+*.zip
+scripts/*.ts
+scripts/demo-media/*.html
+scripts/demo-media/*.mjs

@@ -1,0 +1,13 @@
+# dependências e ficheiros locais
+node_modules/
+.env
+.env.local
+*.log
+.DS_Store
+
+# resultados de testes
+e2e/output/
+test-results/
+
+# NOTA: a pasta dist/ é propositadamente guardada no repositório.
+# Contém a aplicação já construída e testada, para que o alojamento não precise de instalar nada.

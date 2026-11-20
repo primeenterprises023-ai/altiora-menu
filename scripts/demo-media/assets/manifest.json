@@ -1,0 +1,64 @@
+{
+  "dishes": {
+    "pasteis": {
+      "image": "pasteis.jpg",
+      "thumb": "pasteis-thumb.jpg",
+      "model": null
+    },
+    "salada": {
+      "image": "salada.jpg",
+      "thumb": "salada-thumb.jpg",
+      "model": null
+    },
+    "muamba": {
+      "image": "muamba.jpg",
+      "thumb": "muamba-thumb.jpg",
+      "model": "muamba.glb"
+    },
+    "mufete": {
+      "image": "mufete.jpg",
+      "thumb": "mufete-thumb.jpg",
+      "model": "mufete.glb"
+    },
+    "dourada": {
+      "image": "dourada.jpg",
+      "thumb": "dourada-thumb.jpg",
+      "model": "dourada.glb"
+    },
+    "camarao": {
+      "image": "camarao.jpg",
+      "thumb": "camarao-thumb.jpg",
+      "model": "camarao.glb"
+    },
+    "costeleta": {
+      "image": "costeleta.jpg",
+      "thumb": "costeleta-thumb.jpg",
+      "model": null
+    },
+    "pudim": {
+      "image": "pudim.jpg",
+      "thumb": "pudim-thumb.jpg",
+      "model": "pudim.glb"
+    },
+    "mousse": {
+      "image": "mousse.jpg",
+      "thumb": "mousse-thumb.jpg",
+      "model": "mousse.glb"
+    },
+    "cocada": {
+      "image": "cocada.jpg",
+      "thumb": "cocada-thumb.jpg",
+      "model": null
+    },
+    "sumo": {
+      "image": "sumo.jpg",
+      "thumb": "sumo-thumb.jpg",
+      "model": null
+    },
+    "cafe": {
+      "image": "cafe.jpg",
+      "thumb": "cafe-thumb.jpg",
+      "model": "cafe.glb"
+    }
+  }
+}

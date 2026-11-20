@@ -1,0 +1,43 @@
+# Render Blueprint — ALTIORA MENU (pedidos por QR Code para restaurantes).
+# Passo a passo, com imagens e explicações: docs/publicar.md
+#
+# Cria UM serviço web com Docker. Esse serviço entrega a aplicação (páginas e API) e liga-se à base de dados que
+# criou no Supabase. Os dados ficam na base de dados, não no Render.
+services:
+  - type: web
+    name: altiora-menu
+    runtime: docker
+    dockerfilePath: ./Dockerfile
+    # Para experimentar sem pagar, troque «starter» por «free». No plano gratuito o serviço adormece ao fim de 15 minutos
+    # sem visitas e demora cerca de 1 minuto a acordar: serve para testar, NÃO para restaurantes a funcionar.
+    plan: starter
+    # Frankfurt é a região do Render mais próxima de Angola. Escolha a mesma região no Supabase.
+    region: frankfurt
+    healthCheckPath: /api/health
+    autoDeploy: true
+    envVars:
+      - key: NODE_ENV
+        value: production
+      # Endereço da base de dados (Supabase → Connect → Session pooler). O Render pede-o quando cria o serviço.
+      - key: DATABASE_URL
+        sync: false
+      - key: DATABASE_SSL
+        value: require
+      # Primeira conta de administração da Altiora. Depois de entrar, mude a palavra-passe (é obrigatório)
+      # e apague estas duas variáveis. O Render pede os valores quando cria o serviço.
+      - key: BOOTSTRAP_ADMIN_EMAIL
+        sync: false
+      - key: BOOTSTRAP_ADMIN_PASSWORD
+        sync: false
+      # Cria o restaurante de demonstração «Casa Aurora» (fictício) que a página comercial mostra. Só o cria se ainda
+      # não existir; pode apagar esta variável depois da primeira vez.
+      - key: SEED_SHOWCASE
+        value: "true"
+      - key: DEMO_RESTAURANT_SLUG
+        value: demo
+      # Um «salto» entre a internet e a aplicação (o próprio Render): serve para ler o IP real de quem visita.
+      - key: TRUST_PROXY_HOPS
+        value: "1"
+      # O endereço público (PUBLIC_BASE_URL) é o do próprio Render. Se ligar um domínio seu (recomendado), acrescente
+      # PUBLIC_BASE_URL com esse domínio ANTES de imprimir os QR Codes. Os contactos comerciais (COMMERCIAL_EMAIL,
+      # COMMERCIAL_PHONE, COMMERCIAL_WHATSAPP, COMMERCIAL_ADDRESS) também se acrescentam no painel do Render.

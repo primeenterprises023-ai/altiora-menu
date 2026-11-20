@@ -1,0 +1,1 @@
+import{h as s,v as a}from"./chunk-P6QTSLSA.js";import{b as n}from"./chunk-5BEVYMCJ.js";var o=n(a(),1);function p({cents:r,className:e=""}){return(0,o.jsx)("span",{className:`num nowrap ${e}`,children:s(r)})}export{p as a};
